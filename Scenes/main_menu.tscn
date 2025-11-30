@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdmogt4rsrhs6"]
+
+[ext_resource type="Script" uid="uid://bfmpvp2w7e7hh" path="res://main_menu.gd" id="1_28flt"]
+
+[node name="Main menu" type="Node2D"]
+script = ExtResource("1_28flt")
+
+[node name="Button manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 765.0
+offset_right = 1112.0
+offset_bottom = 843.0
+text = "Start
+"
+
+[node name="Exit" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 871.0
+offset_right = 1112.0
+offset_bottom = 949.0
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 299.0
+offset_top = 121.00006
+offset_right = 474.0
+offset_bottom = 170.00006
+scale = Vector2(7.8399987, 7.8399987)
+text = "RALLY EVOLUTION
+Made by: Pankaj Jhanji"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Button manager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button manager/Exit" to="." method="_on_exit_pressed"]

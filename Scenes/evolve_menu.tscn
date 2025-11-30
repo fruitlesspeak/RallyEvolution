@@ -1,0 +1,88 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbp4c2pcjwh1c"]
+
+[ext_resource type="Script" uid="uid://bpqgw3y6lcd2g" path="res://Scripts/evolve_menu.gd" id="1_irtvg"]
+
+[node name="Evolve menu" type="Node2D"]
+script = ExtResource("1_irtvg")
+
+[node name="Button manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RPM" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 249.0
+offset_right = 903.0
+offset_bottom = 327.0
+text = "Upgrade RPM: This upgrades how fast the engine spins"
+
+[node name="Torque" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 249.0
+offset_right = 1434.0
+offset_bottom = 327.0
+text = "Upgrade Torque: This upgrades how strongly the engine pulls
+"
+
+[node name="TurnSpeed" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 373.0
+offset_right = 903.0
+offset_bottom = 451.0
+text = "Upgrade Turn Speed: This Upgrades how fast you can turn"
+
+[node name="TurnAmount" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 373.0
+offset_right = 1434.0
+offset_bottom = 451.0
+text = "Upgrade Turn Amount: This upgrades how much you can turn
+"
+
+[node name="Exit" type="Button" parent="Button manager"]
+layout_mode = 0
+offset_left = 794.0
+offset_top = 714.0
+offset_right = 1115.0
+offset_bottom = 792.0
+text = "Exit"
+
+[node name="CurrentRPM" type="Label" parent="."]
+offset_left = 621.0
+offset_top = 514.0
+offset_right = 817.0
+offset_bottom = 545.0
+text = "Current RPM:"
+
+[node name="CurrentTorque" type="Label" parent="."]
+offset_left = 1038.0
+offset_top = 514.0
+offset_right = 1234.0
+offset_bottom = 545.0
+text = "Current Torque:"
+
+[node name="CurrentTurnSpeed" type="Label" parent="."]
+offset_left = 621.0
+offset_top = 582.0
+offset_right = 817.0
+offset_bottom = 613.0
+text = "Current Turn Speed:"
+
+[node name="CurrentTurnAmount" type="Label" parent="."]
+offset_left = 1038.0
+offset_top = 582.0
+offset_right = 1234.0
+offset_bottom = 613.0
+text = "Current Turn Amount:"
+
+[connection signal="pressed" from="Button manager/RPM" to="." method="_on_rpm_pressed"]
+[connection signal="pressed" from="Button manager/Torque" to="." method="_on_torque_pressed"]
+[connection signal="pressed" from="Button manager/TurnSpeed" to="." method="_on_turn_speed_pressed"]
+[connection signal="pressed" from="Button manager/TurnAmount" to="." method="_on_turn_amount_pressed"]
+[connection signal="pressed" from="Button manager/Exit" to="." method="_on_exit_pressed"]
