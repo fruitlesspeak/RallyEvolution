@@ -1,6 +1,6 @@
 extends Node3D
 
-@export_range (1,10,0.1) var smooth_speed: float = 2.5
+@export_range (1,10,0.1) var smooth_speed: float = 3.5
 
 var direction = Vector3.FORWARD
 
@@ -8,8 +8,9 @@ func _physics_process(delta: float) -> void:
 	var current_velocity = get_parent().get_linear_velocity()
 	current_velocity.y = 0
 	
-	if current_velocity.length() > 0.1:
+	if current_velocity.length() > 1:
 		direction = lerp(direction.normalized(), -current_velocity.normalized(), smooth_speed * delta)
+		
 	global_transform.basis = get_rotation_from_direction(direction)
 	
 	

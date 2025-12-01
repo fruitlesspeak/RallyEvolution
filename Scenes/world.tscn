@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c7kevwbwyrxos" path="res://Assests/Terrain/TerrainRallyEvolution.glb" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://xs31et5cif0f" path="res://Scenes/car.tscn" id="2_go701"]
-[ext_resource type="Script" uid="uid://dhvhgm360461s" path="res://Scripts/finish_line.gd" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://bic3fltpaevny" path="res://Scripts/timer.gd" id="4_8j60k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yp4wr"]
@@ -18,8 +17,10 @@ sky = SubResource("Sky_a02cp")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="GDScript" id="GDScript_5a7ea"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_go701"]
-size = Vector3(32.9917, 32.79785, 20.324219)
+size = Vector3(47.242126, 37.191406, 25.972534)
 
 [node name="World" type="Node3D"]
 
@@ -34,14 +35,14 @@ shadow_enabled = true
 transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 
 [node name="car" parent="." instance=ExtResource("2_go701")]
-transform = Transform3D(-0.035178598, 0, -0.99938107, 0, 1, 0, 0.99938107, 0, -0.035178598, 144.8011, 39.030483, 117.02228)
+transform = Transform3D(-0.035178598, 0, -0.99938107, 0, 1, 0, 0.99938107, 0, -0.035178598, 142.28703, 40.784122, 113.75597)
 
 [node name="Finish Line" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.233673, 44.438965, -161.63974)
-script = ExtResource("3_5a7ea")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.233673, 44.438965, -138.88914)
+script = SubResource("GDScript_5a7ea")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Finish Line"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3882294, 1.3989258, 2.0748749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8241577)
 shape = SubResource("BoxShape3D_go701")
 
 [node name="UI" type="Control" parent="."]
@@ -75,4 +76,5 @@ text = "Press and hold 'R' to reset the rally
 
 Press and hold 'X' to return to the main menu"
 
+[connection signal="area_entered" from="Finish Line" to="car" method="_on_finish_line_area_entered"]
 [connection signal="timeout" from="UI/Timer" to="UI" method="on_timer_timeout"]

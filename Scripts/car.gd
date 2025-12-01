@@ -14,6 +14,7 @@ var reset__exit_hold_duration: float = 1.0
 
 
 func _ready() -> void:
+	add_to_group("Player", true)
 	max_RPM = CarStats.max_RPM
 	max_torque = CarStats.max_torque
 	turn_speed = CarStats.turn_speed
@@ -21,8 +22,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
-	
 	var dir = Input.get_action_strength("forward") - Input.get_action_strength("back")
 	var steering_direction = Input.get_action_strength("left") - Input.get_action_strength("right")
 	
@@ -52,6 +51,4 @@ func _physics_process(delta: float) -> void:
 	
 		
 		
-	
-	
 	
